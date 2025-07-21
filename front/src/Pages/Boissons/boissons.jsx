@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../Entree/Entree.css"; // Réutilisation du CSS des entrées
+import "../Entree/Entree.css"; // On réutilise le même CSS que les entrées
 
 const Boissons = () => {
   const [boissons, setBoissons] = useState([]);
@@ -8,8 +8,12 @@ const Boissons = () => {
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_URL}/car/boissons`)
-      .then((response) => setBoissons(response.data))
-      .catch((error) => console.error("Erreur lors du chargement des boissons :", error));
+      .then((response) => {
+        setBoissons(response.data);
+      })
+      .catch((error) => {
+        console.error("Erreur lors du chargement des boissons :", error);
+      });
   }, []);
 
   const categories = [
@@ -23,7 +27,7 @@ const Boissons = () => {
 
   return (
     <div className="entree-container">
-      <h2>Nos Boissons - {categories.find(c => c.value === categorieActive)?.label}</h2>
+      <h2>Nos Boissons - {categories.find(c => c.value === categorieActive).label}</h2>
 
       <div className="category-buttons">
         {categories.map(cat => (
@@ -50,7 +54,6 @@ const Boissons = () => {
                 />
               )}
               <h3>{item.nom}</h3>
-              {item.volume && <p><strong>Volume :</strong> {item.volume}</p>}
               <p><strong>Prix :</strong> {item.prix}</p>
             </div>
           ))}

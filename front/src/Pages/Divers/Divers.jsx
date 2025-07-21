@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../Entree/Entree.css";
+import "../Entree/Entree.css"; // réutilisation du CSS existant
 
 const Divers = () => {
   const [divers, setDivers] = useState([]);
@@ -24,20 +24,9 @@ const Divers = () => {
     { label: "Divers", value: "divers" },
   ];
 
-  const renderDescription = () => {
-    if (categorieActive === "pain_au_four") {
-      return (
-        <p className="description-categorie">
-          Nos pains au four sont des sandwichs chauds et croustillants, préparés avec du pain maison passé au four. Garnis de viandes variées comme le kebab, le steak ou le poulet, ils sont servis simples ou accompagnés de frites pour un repas encore plus gourmand.
-        </p>
-      );
-    }
-    return null;
-  };
-
   return (
     <div className="entree-container">
-      <h2>Nos {categories.find(c => c.value === categorieActive)?.label}</h2>
+      <h2>Nos Divers - {categories.find(c => c.value === categorieActive)?.label}</h2>
 
       <div className="category-buttons">
         {categories.map(cat => (
@@ -50,8 +39,13 @@ const Divers = () => {
           </button>
         ))}
       </div>
+      
+      {categorieActive === "pain_au_four" && (
+  <p className="description-categorie">
+    Nos pains au four sont des sandwichs chauds et croustillants, préparés avec du pain maison passé au four. Garnis de viandes variées comme le kebab, le steak ou le poulet, ils sont servis simples ou accompagnés de frites pour un repas encore plus gourmand.
+  </p>
+)}
 
-      {renderDescription()}
 
       <div className="entree-grid">
         {divers
@@ -66,10 +60,8 @@ const Divers = () => {
                 />
               )}
               <h3>{item.nom}</h3>
-              {item.ingredients && (
-                <p><strong>Ingrédients :</strong> {item.ingredients}</p>
-              )}
               <p><strong>Prix :</strong> {item.prix}</p>
+              {item.ingredients && <p><strong>Ingrédients :</strong> {item.ingredients}</p>}
             </div>
           ))}
       </div>

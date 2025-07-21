@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { API_URL } from "../../config";
-import "./Entree.css";
+import axios from "axios";
+import "./Entree.css"; // crée un fichier CSS pour le style
 
 const Entree = () => {
   const [entrees, setEntrees] = useState([]);
   const [categorieActive, setCategorieActive] = useState("entree");
 
   useEffect(() => {
-    fetch(`${API_URL}/car/entree`)
+    axios.get(`${import.meta.env.VITE_API_URL}/car/entree`)
       .then((response) => {
-        if (!response.ok) throw new Error("Erreur réseau");
-        return response.json();
+        setEntrees(response.data);
       })
-      .then((data) => setEntrees(data))
-      .catch((error) => console.error("Erreur lors du chargement des entrées :", error));
+      .catch((error) => {
+        console.error("Erreur lors du chargement des entrées :", error);
+      });
   }, []);
 
   const categories = [
@@ -24,10 +24,10 @@ const Entree = () => {
 
   return (
     <div className="entree-container">
-      <h2>Nos {categories.find(c => c.value === categorieActive)?.label}</h2>
+      <h2>Nos {categories.find(c => c.value === categorieActive).label}</h2>
 
       <div className="category-buttons">
-        {categories.map(cat => (
+        {categories.map((cat) => (
           <button
             key={cat.value}
             className={categorieActive === cat.value ? "active" : ""}
@@ -40,21 +40,23 @@ const Entree = () => {
 
       <div className="entree-grid">
         {entrees
-          .filter(item => item.categorie === categorieActive)
+          .filter((item) => item.categorie === categorieActive)
           .map((item, index) => (
             <div key={index} className="entree-card">
               {item.image && (
                 <img
-                  src={`${API_URL}/image/entree/${item.image}`}
+                src={`${import.meta.env.VITE_API_URL}/image/entree/${item.image}`}
                   alt={item.nom}
                   className="entree-image"
                 />
               )}
               <h3>{item.nom}</h3>
-              {item.ingredients && <p><strong>Ingrédients :</strong> {item.ingredients}</p>}
+              {item.ingredients && (
+                <p><strong>Ingrédients :</strong> {item.ingredients}</p>
+              )}
               <p><strong>Prix :</strong> {item.prix}</p>
             </div>
-          ))}
+        ))}
       </div>
     </div>
   );

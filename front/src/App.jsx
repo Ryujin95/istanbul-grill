@@ -4,7 +4,7 @@ import Sandwich from "./Pages/Sandwich/Sandwich";
 import Accueil from "./Pages/Accueil/Accueil";
 import Entree from "./Pages/Entree/Entree";
 import Assiettes from "./Pages/Assiettes/assiettes"; // ← tu l'avais oublié
-import Styles from "./App.module.css";
+import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import Boissons from "./Pages/Boissons/boissons";
 import Desserts from "./Pages/Desserts/Desserts";
