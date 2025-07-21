@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_URL } from "../config";
+import { API_URL } from "../../config";
 import "./Entree.css";
 
 const Entree = () => {
@@ -8,7 +8,10 @@ const Entree = () => {
 
   useEffect(() => {
     fetch(`${API_URL}/car/entree`)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) throw new Error("Erreur réseau");
+        return response.json();
+      })
       .then((data) => setEntrees(data))
       .catch((error) => console.error("Erreur lors du chargement des entrées :", error));
   }, []);
@@ -21,10 +24,10 @@ const Entree = () => {
 
   return (
     <div className="entree-container">
-      <h2>Nos {categories.find(c => c.value === categorieActive).label}</h2>
+      <h2>Nos {categories.find(c => c.value === categorieActive)?.label}</h2>
 
       <div className="category-buttons">
-        {categories.map((cat) => (
+        {categories.map(cat => (
           <button
             key={cat.value}
             className={categorieActive === cat.value ? "active" : ""}
@@ -37,7 +40,7 @@ const Entree = () => {
 
       <div className="entree-grid">
         {entrees
-          .filter((item) => item.categorie === categorieActive)
+          .filter(item => item.categorie === categorieActive)
           .map((item, index) => (
             <div key={index} className="entree-card">
               {item.image && (
@@ -48,9 +51,7 @@ const Entree = () => {
                 />
               )}
               <h3>{item.nom}</h3>
-              {item.ingredients && (
-                <p><strong>Ingrédients :</strong> {item.ingredients}</p>
-              )}
+              {item.ingredients && <p><strong>Ingrédients :</strong> {item.ingredients}</p>}
               <p><strong>Prix :</strong> {item.prix}</p>
             </div>
           ))}
