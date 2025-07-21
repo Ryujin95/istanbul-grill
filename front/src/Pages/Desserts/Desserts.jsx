@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../Entree/Entree.css"; // tu peux réutiliser ce CSS
+import "../Entree/Entree.css";
 
 const Desserts = () => {
   const [desserts, setDesserts] = useState([]);
@@ -26,6 +26,9 @@ const Desserts = () => {
               />
             )}
             <h3>{item.nom}</h3>
+            {item.ingredients && (
+              <p><strong>Ingrédients :</strong> {item.ingredients}</p>
+            )}
             <p><strong>Prix :</strong> {item.prix}</p>
           </div>
         ))}

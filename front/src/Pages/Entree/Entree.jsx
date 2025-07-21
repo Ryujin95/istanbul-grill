@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-import "./Entree.css"; // crée un fichier CSS pour le style
+import { API_URL } from "../config";
+import "./Entree.css";
 
 const Entree = () => {
   const [entrees, setEntrees] = useState([]);
   const [categorieActive, setCategorieActive] = useState("entree");
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/car/entree`)
-      .then((response) => {
-        setEntrees(response.data);
-      })
-      .catch((error) => {
-        console.error("Erreur lors du chargement des entrées :", error);
-      });
+    fetch(`${API_URL}/car/entree`)
+      .then((response) => response.json())
+      .then((data) => setEntrees(data))
+      .catch((error) => console.error("Erreur lors du chargement des entrées :", error));
   }, []);
 
   const categories = [
@@ -45,7 +42,7 @@ const Entree = () => {
             <div key={index} className="entree-card">
               {item.image && (
                 <img
-                src={`${import.meta.env.VITE_API_URL}/image/entree/${item.image}`}
+                  src={`${API_URL}/image/entree/${item.image}`}
                   alt={item.nom}
                   className="entree-image"
                 />
@@ -56,7 +53,7 @@ const Entree = () => {
               )}
               <p><strong>Prix :</strong> {item.prix}</p>
             </div>
-        ))}
+          ))}
       </div>
     </div>
   );
