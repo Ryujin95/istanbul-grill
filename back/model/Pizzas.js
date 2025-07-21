@@ -1,0 +1,30 @@
+const pizzas = [
+    { categorie: "pizza", nom: "Margherita", prix: "8€00", ingredients: "Sauce tomate, fromage, olives", image: "margherita.jpg" },
+    { categorie: "pizza", nom: "Napolitaine", prix: "9€50", ingredients: "Sauce tomate, fromage, olives, câpres, anchois", image: "napolitaine.webp" },
+    { categorie: "pizza", nom: "Paysanne", prix: "10€50", ingredients: "Sauce tomate, fromage, lardons, oignons, œuf", image: "paysanne.jpg" },
+    { categorie: "pizza", nom: "Neptune", prix: "9€50", ingredients: "Sauce tomate, fromage, thon, olives", image: "neptune.jpeg" },
+    { categorie: "pizza", nom: "Regina", prix: "9€50", ingredients: "Sauce tomate, fromage, champignons, jambon", image: "regina.jpeg" },
+    { categorie: "pizza", nom: "Calzone", prix: "9€50", ingredients: "Sauce tomate, fromage, jambon, œuf", image: "calzone.webp" },
+    { categorie: "pizza", nom: "Fruits de Mer", prix: "10€50", ingredients: "Sauce tomate, fromage, fruits de mer", image: "fruitsdemer.jpg" },
+    { categorie: "pizza", nom: "Saumon Fumé", prix: "12€50", ingredients: "Crème fraîche, fromage, saumon", image: "saumonfume.jpg" },
+    { categorie: "pizza", nom: "Savoyarde", prix: "11€50", ingredients: "Crème fraîche, fromage, reblochon, lardons", image: "savoyarde.jpeg" },
+    { categorie: "pizza", nom: "Le Chef", prix: "11€50", ingredients: "Sauce tomate, fromage, viande de kebab", image: "lechef.jpg" },
+    { categorie: "pizza", nom: "Pepperoni", prix: "10€50", ingredients: "Sauce tomate, fromage, aubergine, chorizo, poivrons", image: "pepperoni.png" },
+    { categorie: "pizza", nom: "Chèvre au Miel", prix: "10€50", ingredients: "Crème fraîche, fromage de chèvre, miel", image: "chevremiel.jpg" },
+    { categorie: "pizza", nom: "4 Fromages", prix: "11€50", ingredients: "Sauce tomate, mozzarella, fromage de chèvre, camembert, roquefort", image: "4f.webp" },
+    { categorie: "pizza", nom: "Rigolette", prix: "10€50", ingredients: "Sauce tomate, fromage, œuf, champignons, viande hachée, oignons, poivrons", image: "rigolette.jpg" },
+    { categorie: "pizza", nom: "4 Saisons", prix: "11€50", ingredients: "Sauce tomate, fromage, jambon de dinde, champignons, poivrons, artichauts", image: "4saisons.webp" },
+    { categorie: "pizza", nom: "Roma", prix: "10€50", ingredients: "Sauce tomate, fromage, jambon de dinde, champignons, oignons, œuf", image: "roma.png" },
+    { categorie: "pizza", nom: "Tandoori", prix: "10€50", ingredients: "Sauce tomate, fromage, poulet tandoori, oignons, poivrons", image: "tandoori.jpg" },
+    { categorie: "pizza", nom: "Curry", prix: "10€50", ingredients: "Sauce tomate, fromage, poulet curry, oignons, poivrons", image: "curry.avif" },
+    { categorie: "pizza", nom: "Fermière", prix: "12€00", ingredients: "Crème fraîche, lardons, pomme de terre, champignons", image: "fermiere.webp" },
+    { categorie: "pizza", nom: "Suprême", prix: "12€00", ingredients: "Crème fraîche, fromage, jambon, lardons, boursin, oignons", image: "supreme.jpg" },
+    { categorie: "pizza", nom: "Orientale", prix: "9€50", ingredients: "Sauce tomate, fromage, merguez, œuf, poivrons, champignons", image: "orientale.jpg" },
+    { categorie: "pizza", nom: "Végétarienne", prix: "10€50", ingredients: "Sauce tomate, fromage, poivrons, champignons, pomme de terre, olives", image: "vegetarienne.jpg" },
+    {categorie: "lahmacun",nom: "Lahmacun",prix: "3€50",ingredients: "Galette fine turque garnie de viande hachée et légumes",image: "lahmacun.webp"},
+    {categorie: "pide",nom: "Pide au Fromage",prix: "6€50",ingredients: "Pide garnie de fromage fondant",image: "pide-fromage.webp"},
+    {categorie: "pide",nom: "Pide Viande Hachée & Œuf",prix: "6€50",ingredients: "Pide à la viande hachée, œuf au centre",image: "pide-viande-oeuf.jpg"},
+    {categorie: "pide",nom: "Pide Saucisson Turc & Œuf",prix: "6€50",ingredients: "Pide garnie de saucisson turc (sucuk) et œuf",image: "pide-saucisson-oeuf.jpg"}
+];
+
+module.exports = pizzas;

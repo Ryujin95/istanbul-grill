@@ -1,0 +1,9 @@
+body{
+  background: radial-gradient(circle, #491902,#0f0201 );
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.home{
+  color: antiquewhite;
+}

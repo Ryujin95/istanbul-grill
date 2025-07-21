@@ -1,0 +1,34 @@
+.sandwichs-container {
+    text-align: center;
+    padding: 2rem;
+    color: white;
+  }
+  
+  .sandwichs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .sandwich-card {
+    background: white;
+    color: black;
+    border-radius: 12px;
+    padding: 1rem;
+    width: 220px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+  }
+  
+  .sandwich-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .sandwich-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
