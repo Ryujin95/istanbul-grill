@@ -30,6 +30,9 @@ app.use("/car", dessertRoutes);
 app.use("/car", pizzaRoutes);  // <-- Ajout ici
 app.use("/car", diversRoutes);
 
-app.listen(3001, () => {
-    console.log("L'API est bien lancée sur http://localhost:3001");
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+    console.log(`L'API est bien lancée sur le port ${PORT}`);
 });
+
