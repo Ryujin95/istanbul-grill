@@ -24,21 +24,23 @@ const Header = () => {
           <h6>11H30-22H</h6>
         </div>
       </div>
-      <nav className={styles.nav}>
-        <Link to="/" className={styles.navItem}>Accueil</Link>
-        <Link to="/entree" className={styles.navItem}>Entrées</Link>
-        <div className={styles.dropdown}>
-  <span className={styles.navItemPlats}>Plats</span>
-  <div className={styles.dropdownContent}>
-    <Link to="/sandwich" className={styles.navItem}>Sandwichs</Link>
-    <Link to="/assiettes" className={styles.navItem}>Assiettes</Link>
-    <Link to="/pizzas" className={styles.navItem}>Pizza</Link>
-    <Link to="/divers" className={styles.navItem}>Divers</Link>
-  </div>
-</div>
 
-        <Link to="/desserts" className={styles.navItem}>Desserts</Link>
-        <Link to="/boissons" className={styles.navItem}>Boissons</Link>
+      <nav className={styles.nav}>
+        <Link to="/" className={styles.navItem}><span>Accueil</span></Link>
+        <Link to="/entree" className={styles.navItem}><span>Entrées</span></Link>
+
+        <div className={styles.dropdown}>
+          <span className={`${styles.navItem} ${styles.navItemPlats}`}><span>Plats</span></span>
+          <div className={styles.dropdownContent}>
+            <Link to="/sandwich" className={styles.navItem}><span>Sandwichs</span></Link>
+            <Link to="/assiettes" className={styles.navItem}><span>Assiettes</span></Link>
+            <Link to="/pizzas" className={styles.navItem}><span>Pizza</span></Link>
+            <Link to="/divers" className={styles.navItem}><span>Divers</span></Link>
+          </div>
+        </div>
+
+        <Link to="/desserts" className={styles.navItem}><span>Desserts</span></Link>
+        <Link to="/boissons" className={styles.navItem}><span>Boissons</span></Link>
       </nav>
     </header>
   );

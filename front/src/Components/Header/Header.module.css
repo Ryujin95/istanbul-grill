@@ -177,7 +177,34 @@
   .navItem:focus {
     outline: none;
   }
-
+  .navItem {
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    z-index: 1;
+  }
+  
+  .navItem::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 0;
+    transition: left 0.3s ease;
+  }
+  
+  .navItem:hover::before {
+    left: 0;
+  }
+  
+  .navItem span {
+    position: relative;
+    z-index: 2;
+  }
+  
   @media (max-width: 768px) {
     .topBar {
       flex-direction: column;
