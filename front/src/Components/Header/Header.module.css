@@ -207,7 +207,7 @@
   .navItem.active::after {
     content: "";
     position: absolute;
-    bottom: -6px; /* <- le point important */
+    bottom: 10px;
     left: 50%;
     width: 60%;
     height: 3px;
@@ -215,7 +215,6 @@
     transform: translateX(-50%);
     border-radius: 5px;
   }
-  
   .navItem.active {
     padding-bottom: 0.7rem;
   }
@@ -262,9 +261,5 @@
       margin-top: -6px;
       width: 17rem;
     }
-  }
-  
-  .navItem.active {
-    padding-bottom: 0.7rem;
   }
   
