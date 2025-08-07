@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://istanbul-grill-hytk.vercel.app/sitemap.xml
