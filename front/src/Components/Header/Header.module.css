@@ -204,6 +204,20 @@
     position: relative;
     z-index: 2;
   }
+  .navItem.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 60%;
+    height: 3px;
+    background-color: white;
+    transform: translateX(-50%);
+    border-radius: 5px;
+  }
+  .navItem.active {
+    padding-bottom: 0.7rem;
+  }
   
   @media (max-width: 768px) {
     .topBar {
@@ -249,4 +263,7 @@
     }
   }
   
+  .navItem.active {
+    padding-bottom: 0.7rem;
+  }
   

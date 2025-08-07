@@ -1,7 +1,7 @@
 import React from 'react';
 import halalLogo from '../../assets/100-halal-sticker-label_24886-318.avif';
 import styles from './Header.module.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -26,21 +26,82 @@ const Header = () => {
       </div>
 
       <nav className={styles.nav}>
-        <Link to="/" className={styles.navItem}><span>Accueil</span></Link>
-        <Link to="/entree" className={styles.navItem}><span>Entrées</span></Link>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
+          }
+        >
+          <span>Accueil</span>
+        </NavLink>
+
+        <NavLink
+          to="/entree"
+          className={({ isActive }) =>
+            isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
+          }
+        >
+          <span>Entrées</span>
+        </NavLink>
 
         <div className={styles.dropdown}>
           <span className={`${styles.navItem} ${styles.navItemPlats}`}><span>Plats</span></span>
           <div className={styles.dropdownContent}>
-            <Link to="/sandwich" className={styles.navItem}><span>Sandwichs</span></Link>
-            <Link to="/assiettes" className={styles.navItem}><span>Assiettes</span></Link>
-            <Link to="/pizzas" className={styles.navItem}><span>Pizza</span></Link>
-            <Link to="/divers" className={styles.navItem}><span>Divers</span></Link>
+            <NavLink
+              to="/sandwich"
+              className={({ isActive }) =>
+                isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
+              }
+            >
+              <span>Sandwichs</span>
+            </NavLink>
+
+            <NavLink
+              to="/assiettes"
+              className={({ isActive }) =>
+                isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
+              }
+            >
+              <span>Assiettes</span>
+            </NavLink>
+
+            <NavLink
+              to="/pizzas"
+              className={({ isActive }) =>
+                isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
+              }
+            >
+              <span>Pizza</span>
+            </NavLink>
+
+            <NavLink
+              to="/divers"
+              className={({ isActive }) =>
+                isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
+              }
+            >
+              <span>Divers</span>
+            </NavLink>
           </div>
         </div>
 
-        <Link to="/desserts" className={styles.navItem}><span>Desserts</span></Link>
-        <Link to="/boissons" className={styles.navItem}><span>Boissons</span></Link>
+        <NavLink
+          to="/desserts"
+          className={({ isActive }) =>
+            isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
+          }
+        >
+          <span>Desserts</span>
+        </NavLink>
+
+        <NavLink
+          to="/boissons"
+          className={({ isActive }) =>
+            isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
+          }
+        >
+          <span>Boissons</span>
+        </NavLink>
       </nav>
     </header>
   );
