@@ -207,7 +207,7 @@
   .navItem.active::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -6px; /* <- le point important */
     left: 50%;
     width: 60%;
     height: 3px;
@@ -215,6 +215,7 @@
     transform: translateX(-50%);
     border-radius: 5px;
   }
+  
   .navItem.active {
     padding-bottom: 0.7rem;
   }
