@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
   
   .topBar {
@@ -261,5 +262,23 @@
       margin-top: -6px;
       width: 17rem;
     }
+    .dropdown {
+      position: static;
+    }
+  
+    .dropdownContent {
+      position: static; 
+      background: transparent;
+      box-shadow: none;
+    }
+  
+    .dropdownContent .navItem {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      border: 2px solid #fff;
+      background: rgba(73,25,2,0.95); /* évite la transparence */
+    }
+  
   }
   

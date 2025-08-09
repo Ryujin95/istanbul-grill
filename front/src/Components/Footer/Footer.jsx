@@ -45,7 +45,8 @@ const Footer = () => {
       color: '#fff',
       textAlign: 'center',
       padding: '20px',
-      marginTop: '40px'
+      marginTop: '40px',
+      width: '100%'
     },
     container: {
       display: 'flex',

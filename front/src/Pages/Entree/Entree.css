@@ -4,6 +4,7 @@
     color: white;
     min-height: 100vh;
     text-align: center;
+    width: 100%;
   }
   
   .entree-container h2 {
