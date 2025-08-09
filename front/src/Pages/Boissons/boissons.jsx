@@ -1,23 +1,19 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../Entree/Entree.css"; // CSS partagé
+import "../Entree/Entree.css"; // On réutilise le même CSS que les entrées
 
 const Boissons = () => {
   const [boissons, setBoissons] = useState([]);
   const [categorieActive, setCategorieActive] = useState("sans_alcool");
-  const [dockLeft, setDockLeft] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/car/boissons`)
-      .then((response) => setBoissons(response.data))
-      .catch((error) => console.error("Erreur lors du chargement des boissons :", error));
-  }, []);
-
-  useEffect(() => {
-    const onScroll = () => setDockLeft(window.scrollY > 220);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    axios.get(`${import.meta.env.VITE_API_URL}/car/boissons`)
+      .then((response) => {
+        setBoissons(response.data);
+      })
+      .catch((error) => {
+        console.error("Erreur lors du chargement des boissons :", error);
+      });
   }, []);
 
   const categories = [
@@ -29,13 +25,11 @@ const Boissons = () => {
     { label: "Boissons Chaudes", value: "boisson_chaude" },
   ];
 
-  const labelActif = categories.find(c => c.value === categorieActive)?.label ?? "";
-
   return (
-    <div className={`entree-container ${dockLeft ? "filters-docked" : ""}`}>
-      <h2>Nos Boissons - {labelActif}</h2>
+    <div className="entree-container">
+      <h2>Nos Boissons - {categories.find(c => c.value === categorieActive).label}</h2>
 
-      <div className={`category-buttons ${dockLeft ? "dock-left" : ""}`}>
+      <div className="category-buttons">
         {categories.map(cat => (
           <button
             key={cat.value}

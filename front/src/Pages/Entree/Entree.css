@@ -1,126 +1,143 @@
 .entree-container {
-    padding: 2rem;
-    background: radial-gradient(circle, #491902, #0f0201);
-    color: white;
-    min-height: 100vh;
-    text-align: center;
-  }
-  
-  .entree-container h2 {
-    font-size: 2.5rem;
-    color: #f0a728;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px black;
-  }
-  
-  /* Boutons de catégorie */
-  .category-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-  }
-  
-  .category-buttons button {
-    padding: 0.7rem 1.5rem;
-    font-size: 1rem;
-    border: 2px solid #f0a728;
-    background-color: transparent;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  
-  .category-buttons button:hover,
-  .category-buttons .active {
-    background-color: #f0a728;
-    color: #0f0201;
-  }
-  
-  /* Grille des cartes */
+  padding: 2rem;
+  background: radial-gradient(circle, #491902, #0f0201);
+  color: white;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.entree-container h2 {
+  font-size: 2.5rem;
+  color: #f0a728;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px black;
+}
+
+/* --------- GRILLE: 3 cartes centrées par défaut --------- */
+.entree-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  width: min(1200px, 92%);     /* le bloc n’occupe pas toute la page */
+  margin-inline: auto;         /* centre la grille */
+}
+
+/* Cartes */
+.entree-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid #f0a728;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 0 10px #000;
+  transition: transform 0.2s;
+  width: 100%;
+}
+.entree-card:hover { transform: scale(1.03); }
+
+.entree-card h3 {
+  font-size: 1.5rem;
+  color: #f0a728;
+  margin-bottom: 0.5rem;
+}
+.entree-card p {
+  font-size: 1rem;
+  margin: 0.2rem 0;
+  color: #f8f8f8;
+}
+
+.entree-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.description-categorie {
+  width: 45rem;
+  font-size: 1.2rem;
+  color: #f8f8f8;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Boutons de catégorie */
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.category-buttons button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border: 2px solid #f0a728;
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.category-buttons button:hover,
+.category-buttons .active {
+  background-color: #f0a728;
+  color: #0f0201;
+}
+
+/* --------- Mobile: 1 carte à la fois --------- */
+@media (max-width: 768px) {
   .entree-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Toujours 3 colonnes */
-    gap: 2rem;
-    padding: 1rem;
-  }  
-  
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 0.5rem 0;
+    width: 92%;
+  }
   .entree-card {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid #f0a728;
-    border-radius: 10px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 0 10px #000;
-    transition: transform 0.2s;
+    width: 92vw;
+    max-width: 520px;
+    margin: 0 auto;
   }
-  
-  .entree-card:hover {
-    transform: scale(1.03);
-  }
-  
-  .entree-card h3 {
-    font-size: 1.5rem;
-    color: #f0a728;
-    margin-bottom: 0.5rem;
-  }
-  
-  .entree-card p {
-    font-size: 1rem;
-    margin: 0.2rem 0;
-    color: #f8f8f8;
-  }
-  
   .entree-image {
-    width: 100%;
-    height: 180px;
+    height: auto;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 1rem;
   }
-  .description-categorie{
-    width: 45rem;
+  .category-buttons { justify-content: center; }
+  .description-categorie { width: 90%; text-align: justify; }
+}
+
+/* --------- Dock à gauche en desktop, grille centrée --------- */
+@media screen and (min-width: 1024px) {
+  .entree-container { --filters-width: 260px; --filters-gap: 2rem; }
+
+  .category-buttons.dock-left {
+    position: fixed;
+    left: 24px;
+    top: 110px;
+    width: var(--filters-width);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .75rem;
+    z-index: 20;
+    justify-content: flex-start;
   }
-  @media screen and (max-width: 768px) {
-    .description-categorie {
-      width: 90%;
-      text-align: justify;
-    }
+
+  /* on REMPLACE la marge par du padding pour libérer la place à gauche
+     tout en gardant la grille centrée */
+  .filters-docked h2,
+  .filters-docked .description-categorie,
+  .filters-docked .entree-grid {
+    padding-left: calc(var(--filters-width) + var(--filters-gap));
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
   }
-  @media screen and (min-width: 1024px) {
-    /* largeur et marges du panneau fixe */
-    .entree-container { --filters-width: 260px; --filters-gap: 2rem; }
-  
-    /* quand .dock-left est posé, on transforme le même bloc en panneau gauche */
-    .category-buttons.dock-left {
-      position: fixed;
-      left: 24px;              /* ajuste si tu veux l’aligner différemment */
-      top: 110px;              /* sous ton header */
-      width: var(--filters-width);
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: .75rem;
-      z-index: 20;
-      justify-content: flex-start;  /* plus de centrage */
-    }
-  
-    /* on décale le contenu pour ne pas être recouvert */
-    .filters-docked h2,
-    .filters-docked .description-categorie,
-    .filters-docked .entree-grid {
-      margin-left: calc(var(--filters-width) + var(--filters-gap));
-      text-align: left; /* le titre et la description passent à gauche, cohérent visuellement */
-    }
-    .filters-docked .entree-grid {
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* 260px = assez petit pour tenir à deux */
-      max-width: 1100px; /* empêche les cartes de s'étirer de trop */
-    }
-  
-    .filters-docked .entree-card {
-      max-width: 500px; /* largeur max de chaque carte */
-      margin: 0 auto;   /* centre la carte dans sa colonne */
-    }
-  }
+
+  /* si tu veux que la grille bascule à 2 colonnes quand c’est docké, décommente: */
+  /* .filters-docked .entree-grid { grid-template-columns: repeat(2, minmax(320px, 1fr)); } */
+}
