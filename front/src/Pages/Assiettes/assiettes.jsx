@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../Entree/Entree.css";
- // même CSS que pour les entrées
+import "../Entree/Entree.css"; // même CSS que pour les entrées
 
 const Assiettes = () => {
   const [assietes, setAssietes] = useState([]);
-const [categorieActive, setCategorieActive] = useState("viande_rouge");
-
+  const [categorieActive, setCategorieActive] = useState("viande_rouge");
+  const [dockLeft, setDockLeft] = useState(false);
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_URL}/car/assiettes`)
@@ -18,19 +17,28 @@ const [categorieActive, setCategorieActive] = useState("viande_rouge");
       });
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => {
+      setDockLeft(window.scrollY > 220); // seuil identique aux autres pages
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const categories = [
-        { label: "Viandes Rouges", value: "viande_rouge" },
-        { label: "Viandes Blanches", value: "viande_blanche" },
-        { label: "Poissons", value: "poisson" },
-        { label: "Mixtes", value: "mixte" },
-      ];
-      
+    { label: "Viandes Rouges", value: "viande_rouge" },
+    { label: "Viandes Blanches", value: "viande_blanche" },
+    { label: "Poissons", value: "poisson" },
+    { label: "Mixtes", value: "mixte" },
+  ];
+
+  const labelActif = categories.find(c => c.value === categorieActive)?.label ?? "";
 
   return (
-    <div className="entree-container">
-      <h2>Nos Assiettes - {categories.find(c => c.value === categorieActive).label}</h2>
+    <div className={`entree-container ${dockLeft ? "filters-docked" : ""}`}>
+      <h2>Nos Assiettes - {labelActif}</h2>
 
-      <div className="category-buttons">
+      <div className={`category-buttons ${dockLeft ? "dock-left" : ""}`}>
         {categories.map(cat => (
           <button
             key={cat.value}
@@ -49,7 +57,7 @@ const [categorieActive, setCategorieActive] = useState("viande_rouge");
             <div key={index} className="entree-card">
               {item.image && (
                 <img
-                src={`${import.meta.env.VITE_API_URL}/image/${item.image}`}
+                  src={`${import.meta.env.VITE_API_URL}/image/${item.image}`}
                   alt={item.nom}
                   className="entree-image"
                 />

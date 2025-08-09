@@ -5,11 +5,20 @@ import "./Sandwich.css";
 const Sandwich = () => {
   const [sandwichs, setSandwichs] = useState([]);
   const [categorieActive, setCategorieActive] = useState("viande_blanche");
+  const [dockLeft, setDockLeft] = useState(false);
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_URL}/car/sandwich`)
       .then(response => setSandwichs(response.data))
       .catch(error => console.error("Erreur lors du chargement des sandwichs :", error));
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setDockLeft(window.scrollY > 220); // seuil identique à Pizza
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const categories = [
@@ -18,11 +27,13 @@ const Sandwich = () => {
     { label: "Mixte", value: "mixte" },
   ];
 
-  return (
-    <div className="entree-container">
-      <h2>Nos Sandwichs - {categories.find(c => c.value === categorieActive).label}</h2>
+  const labelActif = categories.find(c => c.value === categorieActive)?.label ?? "";
 
-      <div className="category-buttons">
+  return (
+    <div className={`entree-container ${dockLeft ? "filters-docked" : ""}`}>
+      <h2>Nos Sandwichs - {labelActif}</h2>
+
+      <div className={`category-buttons ${dockLeft ? "dock-left" : ""}`}>
         {categories.map(cat => (
           <button
             key={cat.value}

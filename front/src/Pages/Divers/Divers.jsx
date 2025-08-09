@@ -5,6 +5,7 @@ import "../Entree/Entree.css"; // réutilisation du CSS existant
 const Divers = () => {
   const [divers, setDivers] = useState([]);
   const [categorieActive, setCategorieActive] = useState("burger");
+  const [dockLeft, setDockLeft] = useState(false);
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_URL}/car/divers`)
@@ -16,6 +17,14 @@ const Divers = () => {
       });
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => {
+      setDockLeft(window.scrollY > 220); // seuil identique aux autres pages
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const categories = [
     { label: "Burgers", value: "burger" },
     { label: "Croques", value: "croque" },
@@ -24,11 +33,13 @@ const Divers = () => {
     { label: "Divers", value: "divers" },
   ];
 
-  return (
-    <div className="entree-container">
-      <h2>Nos Divers - {categories.find(c => c.value === categorieActive)?.label}</h2>
+  const labelActif = categories.find(c => c.value === categorieActive)?.label ?? "";
 
-      <div className="category-buttons">
+  return (
+    <div className={`entree-container ${dockLeft ? "filters-docked" : ""}`}>
+      <h2>Nos Divers - {labelActif}</h2>
+
+      <div className={`category-buttons ${dockLeft ? "dock-left" : ""}`}>
         {categories.map(cat => (
           <button
             key={cat.value}
@@ -39,13 +50,14 @@ const Divers = () => {
           </button>
         ))}
       </div>
-      
-      {categorieActive === "pain_au_four" && (
-  <p className="description-categorie">
-    Nos pains au four sont des sandwichs chauds et croustillants, préparés avec du pain maison passé au four. Garnis de viandes variées comme le kebab, le steak ou le poulet, ils sont servis simples ou accompagnés de frites pour un repas encore plus gourmand.
-  </p>
-)}
 
+      {categorieActive === "pain_au_four" && (
+        <p className="description-categorie">
+          Nos pains au four sont des sandwichs chauds et croustillants, préparés avec du pain maison passé au four.
+          Garnis de viandes variées comme le kebab, le steak ou le poulet, ils sont servis simples ou accompagnés de frites
+          pour un repas encore plus gourmand.
+        </p>
+      )}
 
       <div className="entree-grid">
         {divers
@@ -61,7 +73,9 @@ const Divers = () => {
               )}
               <h3>{item.nom}</h3>
               <p><strong>Prix :</strong> {item.prix}</p>
-              {item.ingredients && <p><strong>Ingrédients :</strong> {item.ingredients}</p>}
+              {item.ingredients && (
+                <p><strong>Ingrédients :</strong> {item.ingredients}</p>
+              )}
             </div>
           ))}
       </div>
