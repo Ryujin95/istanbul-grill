@@ -46,7 +46,8 @@ const Footer = () => {
       textAlign: 'center',
       padding: '20px',
       marginTop: '40px',
-      width: '100%'
+      width: '132%',
+      marginLeft: '-8rem',
     },
     container: {
       display: 'flex',

@@ -4,7 +4,8 @@
     color: white;
     min-height: 100vh;
     text-align: center;
-    width: 100%;
+    width: 130%;
+    margin-left: -8rem;
   }
   
   .entree-container h2 {
@@ -88,6 +89,10 @@
     .description-categorie {
       width: 90%;
       text-align: justify;
+    }
+    .entree-container {
+      width: 100%;
+      margin-left: -2rem;
     }
   }
   
