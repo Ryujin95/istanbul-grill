@@ -3,8 +3,7 @@
     background: radial-gradient(circle, #491902, #0f0201);
     color: white;
     min-height: 100vh;
-    width: 70rem;
-    margin-left: 2rem;
+    text-align: center;
   }
   
   .entree-container h2 {
@@ -88,10 +87,6 @@
     .description-categorie {
       width: 90%;
       text-align: justify;
-    }
-    .entree-container {
-      width: 100%;
-      margin-left: -2rem;
     }
   }
   
