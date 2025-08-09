@@ -42,10 +42,10 @@
   /* Grille des cartes */
   .entree-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Toujours 3 colonnes */
     gap: 2rem;
     padding: 1rem;
-  }
+  }  
   
   .entree-card {
     background-color: rgba(255, 255, 255, 0.05);
@@ -113,5 +113,14 @@
     .filters-docked .entree-grid {
       margin-left: calc(var(--filters-width) + var(--filters-gap));
       text-align: left; /* le titre et la description passent à gauche, cohérent visuellement */
+    }
+    .filters-docked .entree-grid {
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* 260px = assez petit pour tenir à deux */
+      max-width: 1100px; /* empêche les cartes de s'étirer de trop */
+    }
+  
+    .filters-docked .entree-card {
+      max-width: 500px; /* largeur max de chaque carte */
+      margin: 0 auto;   /* centre la carte dans sa colonne */
     }
   }
