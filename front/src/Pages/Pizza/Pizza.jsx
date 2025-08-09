@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "../Entree/Entree.css"; // style partagé
+import "../Entree/Entree.css";
 
 const Pizza = () => {
   const [pizzas, setPizzas] = useState([]);
   const [categorieActive, setCategorieActive] = useState("pizza");
+  const [dockLeft, setDockLeft] = useState(false);
 
   useEffect(() => {
     axios.get(`${import.meta.env.VITE_API_URL}/car/pizzas`)
-      .then((response) => {
-        setPizzas(response.data);
-      })
-      .catch((error) => {
-        console.error("Erreur lors du chargement des pizzas :", error);
-      });
+      .then(r => setPizzas(r.data))
+      .catch(e => console.error("Erreur lors du chargement des pizzas :", e));
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      // seuil à ajuster si besoin
+      setDockLeft(window.scrollY > 220);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const categories = [
@@ -22,11 +28,13 @@ const Pizza = () => {
     { label: "Lahmacun", value: "lahmacun" }
   ];
 
-  return (
-    <div className="entree-container">
-      <h2>Nos {categories.find(c => c.value === categorieActive).label}</h2>
+  const labelActif = categories.find(c => c.value === categorieActive)?.label ?? "Pizzas";
 
-      <div className="category-buttons">
+  return (
+    <div className={`entree-container ${dockLeft ? "filters-docked" : ""}`}>
+      <h2>Nos {labelActif}</h2>
+
+      <div className={`category-buttons ${dockLeft ? "dock-left" : ""}`}>
         {categories.map(cat => (
           <button
             key={cat.value}
@@ -37,23 +45,23 @@ const Pizza = () => {
           </button>
         ))}
       </div>
-      {categorieActive === "pide" && (
-  <p className="description-categorie">
-    Le pide est une spécialité turque en forme de barque, garnie de fromage, de viande hachée ou de sucuk (saucisson turc). Cuit au four, il est à la fois croustillant et fondant, idéal pour un repas complet et savoureux.
-  </p>
-)}
-{categorieActive === "lahmacun" && (
-  <p className="description-categorie">
-    Le lahmacun est une galette fine d'origine turque, recouverte d'une préparation à base de viande hachée, de légumes et d'épices. C'est un plat léger, souvent roulé avec des légumes frais et du citron pour plus de fraîcheur.
-  </p>
-)}
 
+      {categorieActive === "pide" && (
+        <p className="description-categorie">
+          Le pide est une spécialité turque en forme de barque, garnie de fromage, de viande hachée ou de sucuk (saucisson turc). Cuit au four, il est à la fois croustillant et fondant, idéal pour un repas complet et savoureux.
+        </p>
+      )}
+      {categorieActive === "lahmacun" && (
+        <p className="description-categorie">
+          Le lahmacun est une galette fine d'origine turque, recouverte d'une préparation à base de viande hachée, de légumes et d'épices. C'est un plat léger, souvent roulé avec des légumes frais et du citron pour plus de fraîcheur.
+        </p>
+      )}
 
       <div className="entree-grid">
         {pizzas
           .filter(pizza => pizza.categorie === categorieActive)
-          .map((pizza, index) => (
-            <div key={index} className="entree-card">
+          .map((pizza, i) => (
+            <div key={i} className="entree-card">
               {pizza.image && (
                 <img
                   src={`${import.meta.env.VITE_API_URL}/image/pizza/${pizza.image}`}

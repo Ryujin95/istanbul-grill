@@ -89,4 +89,29 @@
       text-align: justify;
     }
   }
+  @media screen and (min-width: 1024px) {
+    /* largeur et marges du panneau fixe */
+    .entree-container { --filters-width: 260px; --filters-gap: 2rem; }
   
+    /* quand .dock-left est posé, on transforme le même bloc en panneau gauche */
+    .category-buttons.dock-left {
+      position: fixed;
+      left: 24px;              /* ajuste si tu veux l’aligner différemment */
+      top: 110px;              /* sous ton header */
+      width: var(--filters-width);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: .75rem;
+      z-index: 20;
+      justify-content: flex-start;  /* plus de centrage */
+    }
+  
+    /* on décale le contenu pour ne pas être recouvert */
+    .filters-docked h2,
+    .filters-docked .description-categorie,
+    .filters-docked .entree-grid {
+      margin-left: calc(var(--filters-width) + var(--filters-gap));
+      text-align: left; /* le titre et la description passent à gauche, cohérent visuellement */
+    }
+  }
