@@ -17,7 +17,7 @@
 .entree-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 4rem;
   padding: 1rem;
   width: min(1200px, 92%);     /* le bloc n’occupe pas toute la page */
   margin-inline: auto;         /* centre la grille */
