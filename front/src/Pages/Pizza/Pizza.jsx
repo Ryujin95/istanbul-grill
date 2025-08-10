@@ -15,7 +15,6 @@ const Pizza = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      // seuil à ajuster si besoin
       setDockLeft(window.scrollY > 220);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -30,6 +29,13 @@ const Pizza = () => {
 
   const labelActif = categories.find(c => c.value === categorieActive)?.label ?? "Pizzas";
 
+  const handleCategoryClick = (value) => {
+    setCategorieActive(value);
+    if (dockLeft) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <div className={`entree-container ${dockLeft ? "filters-docked" : ""}`}>
       <h2>Nos {labelActif}</h2>
@@ -39,7 +45,7 @@ const Pizza = () => {
           <button
             key={cat.value}
             className={categorieActive === cat.value ? "active" : ""}
-            onClick={() => setCategorieActive(cat.value)}
+            onClick={() => handleCategoryClick(cat.value)}
           >
             {cat.label}
           </button>
@@ -48,12 +54,14 @@ const Pizza = () => {
 
       {categorieActive === "pide" && (
         <p className="description-categorie">
-          Le pide est une spécialité turque en forme de barque, garnie de fromage, de viande hachée ou de sucuk (saucisson turc). Cuit au four, il est à la fois croustillant et fondant, idéal pour un repas complet et savoureux.
+          Le pide est une spécialité turque en forme de barque, garnie de fromage, de viande hachée ou de sucuk (saucisson turc). 
+          Cuit au four, il est à la fois croustillant et fondant, idéal pour un repas complet et savoureux.
         </p>
       )}
       {categorieActive === "lahmacun" && (
         <p className="description-categorie">
-          Le lahmacun est une galette fine d'origine turque, recouverte d'une préparation à base de viande hachée, de légumes et d'épices. C'est un plat léger, souvent roulé avec des légumes frais et du citron pour plus de fraîcheur.
+          Le lahmacun est une galette fine d'origine turque, recouverte d'une préparation à base de viande hachée, de légumes et d'épices. 
+          C'est un plat léger, souvent roulé avec des légumes frais et du citron pour plus de fraîcheur.
         </p>
       )}
 

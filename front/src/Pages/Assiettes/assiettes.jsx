@@ -8,7 +8,8 @@ const Assiettes = () => {
   const [dockLeft, setDockLeft] = useState(false);
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/car/assiettes`)
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/car/assiettes`)
       .then((response) => {
         setAssietes(response.data);
       })
@@ -32,18 +33,26 @@ const Assiettes = () => {
     { label: "Mixtes", value: "mixte" },
   ];
 
-  const labelActif = categories.find(c => c.value === categorieActive)?.label ?? "";
+  const labelActif =
+    categories.find((c) => c.value === categorieActive)?.label ?? "";
+
+  const handleCategoryClick = (value) => {
+    setCategorieActive(value);
+    if (dockLeft) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <div className={`entree-container ${dockLeft ? "filters-docked" : ""}`}>
       <h2>Nos Assiettes - {labelActif}</h2>
 
       <div className={`category-buttons ${dockLeft ? "dock-left" : ""}`}>
-        {categories.map(cat => (
+        {categories.map((cat) => (
           <button
             key={cat.value}
             className={categorieActive === cat.value ? "active" : ""}
-            onClick={() => setCategorieActive(cat.value)}
+            onClick={() => handleCategoryClick(cat.value)}
           >
             {cat.label}
           </button>
@@ -52,7 +61,7 @@ const Assiettes = () => {
 
       <div className="entree-grid">
         {assietes
-          .filter(item => item.categorie === categorieActive)
+          .filter((item) => item.categorie === categorieActive)
           .map((item, index) => (
             <div key={index} className="entree-card">
               {item.image && (
@@ -64,9 +73,13 @@ const Assiettes = () => {
               )}
               <h3>{item.nom}</h3>
               {item.ingredients && (
-                <p><strong>Ingrédients :</strong> {item.ingredients}</p>
+                <p>
+                  <strong>Ingrédients :</strong> {item.ingredients}
+                </p>
               )}
-              <p><strong>Prix :</strong> {item.prix}</p>
+              <p>
+                <strong>Prix :</strong> {item.prix}
+              </p>
             </div>
           ))}
       </div>

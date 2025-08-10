@@ -35,6 +35,13 @@ const Divers = () => {
 
   const labelActif = categories.find(c => c.value === categorieActive)?.label ?? "";
 
+  const handleCategoryClick = (value) => {
+    setCategorieActive(value);
+    if (dockLeft) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <div className={`entree-container ${dockLeft ? "filters-docked" : ""}`}>
       <h2>Nos Divers - {labelActif}</h2>
@@ -44,7 +51,7 @@ const Divers = () => {
           <button
             key={cat.value}
             className={categorieActive === cat.value ? "active" : ""}
-            onClick={() => setCategorieActive(cat.value)}
+            onClick={() => handleCategoryClick(cat.value)}
           >
             {cat.label}
           </button>

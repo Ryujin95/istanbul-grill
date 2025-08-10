@@ -8,9 +8,12 @@ const Sandwich = () => {
   const [dockLeft, setDockLeft] = useState(false);
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/car/sandwich`)
-      .then(response => setSandwichs(response.data))
-      .catch(error => console.error("Erreur lors du chargement des sandwichs :", error));
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/car/sandwich`)
+      .then((response) => setSandwichs(response.data))
+      .catch((error) =>
+        console.error("Erreur lors du chargement des sandwichs :", error)
+      );
   }, []);
 
   useEffect(() => {
@@ -27,18 +30,27 @@ const Sandwich = () => {
     { label: "Mixte", value: "mixte" },
   ];
 
-  const labelActif = categories.find(c => c.value === categorieActive)?.label ?? "";
+  const labelActif =
+    categories.find((c) => c.value === categorieActive)?.label ?? "";
+
+  // Fonction centrale pour changer la catégorie et scroller en haut
+  const handleCategoryClick = (value) => {
+    setCategorieActive(value);
+    if (dockLeft) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <div className={`entree-container ${dockLeft ? "filters-docked" : ""}`}>
       <h2>Nos Sandwichs - {labelActif}</h2>
 
       <div className={`category-buttons ${dockLeft ? "dock-left" : ""}`}>
-        {categories.map(cat => (
+        {categories.map((cat) => (
           <button
             key={cat.value}
             className={categorieActive === cat.value ? "active" : ""}
-            onClick={() => setCategorieActive(cat.value)}
+            onClick={() => handleCategoryClick(cat.value)}
           >
             {cat.label}
           </button>
@@ -47,7 +59,7 @@ const Sandwich = () => {
 
       <div className="entree-grid">
         {sandwichs
-          .filter(item => item.categorie === categorieActive)
+          .filter((item) => item.categorie === categorieActive)
           .map((item, index) => (
             <div key={index} className="entree-card">
               {item.image && (
@@ -59,10 +71,16 @@ const Sandwich = () => {
               )}
               <h3>{item.nom}</h3>
               {item.ingredients && (
-                <p><strong>Ingrédients :</strong> {item.ingredients}</p>
+                <p>
+                  <strong>Ingrédients :</strong> {item.ingredients}
+                </p>
               )}
-              <p><strong>Prix seul :</strong> {item.prix_seul}</p>
-              <p><strong>Avec frites :</strong> {item.prix_frites}</p>
+              <p>
+                <strong>Prix seul :</strong> {item.prix_seul}
+              </p>
+              <p>
+                <strong>Avec frites :</strong> {item.prix_frites}
+              </p>
             </div>
           ))}
       </div>
