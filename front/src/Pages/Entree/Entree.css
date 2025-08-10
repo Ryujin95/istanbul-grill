@@ -121,7 +121,7 @@
   .category-buttons.dock-left {
     position: fixed;
     left: 24px;
-    top: 310px;
+    top: 50%;
     width: var(--filters-width);
     display: flex;
     flex-direction: column;
