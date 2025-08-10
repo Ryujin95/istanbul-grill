@@ -22,14 +22,13 @@ const Footer = () => {
       
           <div style={styles.block}>
             <h3 style={styles.h3}>Suivez-nous</h3>
-            <a style={styles.link} href="#">Facebook</a>
-            <a style={styles.link} href="#">Instagram</a>
+            <a style={styles.link} href="https://www.facebook.com/istambulgrill/?locale=fr_FR">Facebook</a>
+            <a style={styles.link} href="https://www.instagram.com/explore/locations/659802381029062/restaurant-istanbul-grill/">Instagram</a>
           </div>
       
           <div style={styles.block}>
             <h3 style={styles.h3}>Commandez sur</h3>
             <a style={styles.link} href="https://www.ubereats.com/fr/store/la-maison-du-gourmet-istanbul-grill/fCbmbn1MTLiIrLoDIBXmbQ?srsltid=AfmBOopH7VFh1-UzADLShSNe3IsuA83D1yozRnmaqO9sWV1bQ7eOJiEq">Uber Eats</a>
-            <a style={styles.link} href="#">Deliveroo</a>
           </div>
         </div>
       
