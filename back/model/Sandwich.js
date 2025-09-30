@@ -18,14 +18,14 @@ const models = [
     nom: "Poulet Curry",
     prix_seul: "8€00",
     prix_frites: "8€50",
-    image: "sandwich/pouletcurry.png",
+    image: "sandwich/pouletcurry.jpg",
     categorie: "viande_blanche"
   },
   {
     nom: "Poulet Paprika",
     prix_seul: "8€00",
     prix_frites: "8€50",
-    image: "sandwich/pouletpaprika.png",
+    image: "sandwich/pouletpaprika.webp",
     categorie: "viande_blanche"
   },
   {
