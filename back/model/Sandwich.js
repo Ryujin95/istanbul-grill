@@ -2,9 +2,9 @@
 const models = [
   {
     nom: "Kebab",
-    prix_seul: "7€00",
-    prix_frites: "7€50",
-    image: "sandwich/kebab.png",
+    prix_seul: "7€50",
+    prix_frites: "8€00",
+    image: "sandwich/kebab.jpg",
     categorie: "rouge"
   },
   {
