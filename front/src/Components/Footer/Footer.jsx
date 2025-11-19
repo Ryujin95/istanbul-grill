@@ -31,6 +31,15 @@ const Footer = () => {
             <a style={styles.link} href="https://www.ubereats.com/fr/store/la-maison-du-gourmet-istanbul-grill/fCbmbn1MTLiIrLoDIBXmbQ?srsltid=AfmBOopH7VFh1-UzADLShSNe3IsuA83D1yozRnmaqO9sWV1bQ7eOJiEq">Uber Eats</a>
           </div>
         </div>
+
+        <div style={{ marginTop: "20px" }}>
+        <Link to="/MentionsLegales" style={styles.link}>
+          Mentions légales
+        </Link>
+        <Link to="/cgu" style={styles.link}>
+          CGU
+        </Link>
+      </div>
       
         <p style={{ marginTop: '20px' }}>Nous acceptons : Ticket Restaurant, CB, Visa</p>
       </footer>
