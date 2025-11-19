@@ -1,5 +1,3 @@
-import './Accueil.css'; 
-
 export default function MentionsLegales() {
     return (
         <div style={{ padding: "2rem", maxWidth: "1200px", margin: "0 auto", lineHeight: "1.6", color: "#f0a728"}}>
