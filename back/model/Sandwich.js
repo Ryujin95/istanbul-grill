@@ -63,7 +63,7 @@ const models = [
     ingredients: "Escalope, crème fraîche",
     prix_seul: "9€00",
     prix_frites: "9€50",
-    image: "sandwich/chef.png",
+    image: "sandwich/chef.jpeg",
     categorie: "viande_blanche"
   },
   {
@@ -94,7 +94,7 @@ const models = [
     ingredients: "Escalope, œuf, fromage",
     prix_seul: "9€00",
     prix_frites: "9€50",
-    image: "sandwich/delice.png",
+    image: "sandwich/delice.webp",
     categorie: "viande_blanche"
   },
   {
@@ -157,7 +157,7 @@ const models = [
     ingredients: "Brochette de poulet",
     prix_seul: "8€00",
     prix_frites: "8€50",
-    image: "sandwich/poulet.png",
+    image: "sandwich/poulet.webp",
     categorie: "viande_blanche"
   },
   {
