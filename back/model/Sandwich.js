@@ -11,7 +11,7 @@ const models = [
     nom: "2 Viandes au choix",
     prix_seul: "9€00",
     prix_frites: "9€50",
-    image: "sandwich/2viandes.png",
+    image: "sandwich/2viandes.webp",
     categorie: "mixte"
   },
   {
@@ -55,7 +55,7 @@ const models = [
     ingredients: "Kebab, œuf, fromage",
     prix_seul: "9€00",
     prix_frites: "9€50",
-    image: "sandwich/mgroyal.png",
+    image: "sandwich/mgroyal.jpeg",
     categorie: "mixte"
   },
   {
@@ -71,14 +71,14 @@ const models = [
     ingredients: "Cordon bleu, merguez, œuf, fromage",
     prix_seul: "9€50",
     prix_frites: "10€00",
-    image: "sandwich/phenomene.png",
+    image: "sandwich/phenomene.jpg",
     categorie: "mixte"
   },
   {
     nom: "Steak",
     prix_seul: "7€00",
     prix_frites: "7€50",
-    image: "sandwich/steak.png",
+    image: "sandwich/steak.jpg",
     categorie: "rouge"
   },
   {
@@ -86,7 +86,7 @@ const models = [
     ingredients: "Brochette d'agneau",
     prix_seul: "9€00",
     prix_frites: "9€50",
-    image: "sandwich/agneau.png",
+    image: "sandwich/agneau.webp",
     categorie: "rouge"
   },
   {
@@ -164,7 +164,7 @@ const models = [
     nom: "Falafel",
     prix_seul: "7€00",
     prix_frites: "7€50",
-    image: "sandwich/falafel.png",
+    image: "sandwich/falafel.webp",
     categorie: "mixte"
   },
   {
@@ -180,7 +180,7 @@ const models = [
     ingredients: "Kebab, chicken, fromage chèvre",
     prix_seul: "9€30",
     prix_frites: "9€80",
-    image: "sandwich/extra.png",
+    image: "sandwich/extra.webp",
     categorie: "mixte"
   },
   {
