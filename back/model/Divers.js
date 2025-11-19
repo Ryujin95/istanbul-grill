@@ -1,6 +1,6 @@
 const divers = [
     // 🟫 BURGERS
-    { categorie: "burger", nom: "Cheeseburger", prix: "5€50 seul / 6€00 avec frites", image: "cheeseburger.jpg" },
+    { categorie: "burger", nom: "Cheeseburger", prix: "5€50 seul / 6€00 avec frites", image: "Cheeseburger.jpg" },
     { categorie: "burger", nom: "Double Cheese", prix: "6€70 seul / 7€20 avec frites", image: "double.jpg" },
     { categorie: "burger", nom: "Triple Cheese", prix: "7€70 seul / 8€20 avec frites", image: "triple.png" },
     { categorie: "burger", nom: "Egg Burger", prix: "6€50 seul / 7€00 avec frites", image: "egg.jpeg" },

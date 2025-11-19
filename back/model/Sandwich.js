@@ -38,9 +38,9 @@ const models = [
   },
   {
     nom: "Cordon Bleu",
-    prix_seul: "7€00",
-    prix_frites: "7€50",
-    image: "sandwich/cordonbleu.png",
+    prix_seul: "7€50",
+    prix_frites: "8€00",
+    image: "sandwich/cordonbleu.jpeg",
     categorie: "viande_blanche"
   },
   {
