@@ -33,7 +33,7 @@ const Footer = () => {
         </div>
 
         <div style={{ marginTop: '20px' }}>
-          <a href="/mentions-legales" style={styles.link}>Mentions légales</a>
+          <a href="/MentionsLegales" style={styles.link}>Mentions légales</a>
           <a href="/cgu" style={styles.link}>CGU</a>
         </div>
       
