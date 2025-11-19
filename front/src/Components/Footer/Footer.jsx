@@ -54,11 +54,11 @@ const Footer = () => {
         </div>
       </div>
 
-      <div style={{ marginTop: "20px" }}>
-        <Link to="/mentions-legales" style={styles.link}>
+      <div>
+        <Link to="/MentionsLegales" style={styles.link}>
           Mentions légales
         </Link>
-        <Link to="/cgu" style={styles.link}>
+        <Link to="/CGU" style={styles.link}>
           CGU
         </Link>
       </div>
@@ -68,37 +68,6 @@ const Footer = () => {
       </p>
     </footer>
   );
-};
-
-const styles = {
-  footer: {
-    background: "radial-gradient(circle, #491902, #0f0201)",
-    color: "#fff",
-    textAlign: "center",
-    padding: "20px",
-    marginTop: "40px",
-  },
-  container: {
-    display: "flex",
-    justifyContent: "center",
-    gap: "4rem",
-    flexWrap: "wrap",
-    textAlign: "left",
-  },
-  block: {
-    minWidth: "200px",
-  },
-  h3: {
-    color: "#f5a623",
-    marginBottom: "0.5rem",
-    fontSize: "1.3rem",
-  },
-  link: {
-    color: "#f5a623",
-    textDecoration: "none",
-    display: "block",
-    marginBottom: "0.3rem",
-  },
 };
 
 export default Footer;
