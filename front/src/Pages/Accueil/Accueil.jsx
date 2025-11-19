@@ -1,5 +1,5 @@
 import React from 'react';
-import './Accueil.css'; // Si tu veux styliser cette page
+import './Accueil.css'; 
 
 const Accueil = () => {
   return (
