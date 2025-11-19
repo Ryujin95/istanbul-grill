@@ -32,14 +32,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <div style={{ marginTop: "20px" }}>
-        <Link to="/MentionsLegales" style={styles.link}>
-          Mentions légales
-        </Link>
-        <Link to="/cgu" style={styles.link}>
-          CGU
-        </Link>
-      </div>
+        <div style={{ marginTop: '20px' }}>
+          <a href="/mentions-legales" style={styles.link}>Mentions légales</a>
+          <a href="/cgu" style={styles.link}>CGU</a>
+        </div>
       
         <p style={{ marginTop: '20px' }}>Nous acceptons : Ticket Restaurant, CB, Visa</p>
       </footer>
