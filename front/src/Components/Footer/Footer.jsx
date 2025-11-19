@@ -54,15 +54,6 @@ const Footer = () => {
         </div>
       </div>
 
-      <div>
-        <Link to="/MentionsLegales" style={styles.link}>
-          Mentions légales
-        </Link>
-        <Link to="/CGU" style={styles.link}>
-          CGU
-        </Link>
-      </div>
-
       <p style={{ marginTop: "20px" }}>
         Nous acceptons : Ticket Restaurant, CB, Visa
       </p>
