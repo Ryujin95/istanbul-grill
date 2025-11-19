@@ -32,7 +32,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'row', marginLeft: '5rem'}}>
+        <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'row', marginLeft: '20rem'}}>
           <a href="/MentionsLegales" style={styles.link}>Mentions légales</a>
           <a href="/cgu" style={styles.link}>CGU</a>
         </div>
