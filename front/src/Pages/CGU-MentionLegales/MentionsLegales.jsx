@@ -2,7 +2,7 @@ import './Accueil.css';
 
 export default function MentionsLegales() {
     return (
-        <div>
+        <div style={{ padding: "2rem", maxWidth: "1200px", margin: "0 auto", lineHeight: "1.6", color: "#f0a728"}}>
         <h1>Mentions légales</h1>
 
         <h2>Éditeur du site</h2>
