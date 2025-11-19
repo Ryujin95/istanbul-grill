@@ -11,7 +11,7 @@ import Desserts from "./Pages/Desserts/Desserts";
 import Pizza from "./Pages/Pizza/Pizza";
 import Divers from "./Pages/Divers/Divers";
 import MentionsLegales from "./Pages/CGU-MentionLegales/MentionsLegales";
-import cgu from "./Pages/CGU-MentionLegales/CGU";
+import CGU from "./Pages/CGU-MentionLegales/CGU";
 
 
 
