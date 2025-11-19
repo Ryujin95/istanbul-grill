@@ -47,7 +47,7 @@ const models = [
     nom: "Escalope",
     prix_seul: "7€50",
     prix_frites: "8€00",
-    image: "sandwich/escalope.png",
+    image: "sandwich/escalope.jpeg",
     categorie: "viande_blanche"
   },
   {
