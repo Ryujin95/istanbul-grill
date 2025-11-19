@@ -24,13 +24,11 @@ function App() {
         <Route path="/" element={<Accueil />} />
         <Route path="/sandwich" element={<Sandwich />} />
         <Route path="/entree" element={<Entree />} />
-        <Route path="/assiettes" element={<Assiettes />} /> {/* ← route ajoutée */}
+        <Route path="/assiettes" element={<Assiettes />} /> 
         <Route path="/boissons" element={<Boissons />} />
         <Route path="/desserts" element={<Desserts />} />
         <Route path="/pizzas" element={<Pizza />} />
         <Route path="/divers" element={<Divers />} />
-        <Route path="/MentionsLegales" element={<MentionsLegales />} />
-        <Route path="/cgu" element={<CGU />} />
         {/* Tu peux ajouter /pizzas, /boissons, etc. ici plus tard */}
       </Routes>
 
