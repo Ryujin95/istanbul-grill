@@ -33,7 +33,6 @@ function App() {
         <Route path="/divers" element={<Divers />} />
         <Route path="/MentionsLegales" element={<MentionsLegales />} />
         <Route path="/CGU" element={<CGU />} />
-        {/* Tu peux ajouter /pizzas, /boissons, etc. ici plus tard */}
       </Routes>
 
       <Footer />
