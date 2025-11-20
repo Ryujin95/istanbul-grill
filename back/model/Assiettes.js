@@ -33,7 +33,7 @@ const assiettes = [
     {
       "nom": "Brochette de Poulet",
       "prix": "13€50",
-      "image": "assiettes/poulet.png",
+      "image": "assiettes/poulet.avif",
       "categorie": "viande_blanche"
     },
     {
@@ -45,7 +45,7 @@ const assiettes = [
     {
       "nom": "Poulet Paprika",
       "prix": "13€00",
-      "image": "assiettes/pouletpaprika.png",
+      "image": "assiettes/pouletpaprika.jpg",
       "categorie": "viande_blanche"
     },
     {
