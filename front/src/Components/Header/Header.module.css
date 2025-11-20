@@ -11,10 +11,12 @@
   
   .topBar {
     width: 100%;
+    max-width: 1200px;    /* largeur fixe du bloc */
+    margin: 0 auto;       /* centrage du bloc */
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+  }  
   
   .logoHalal {
     height: 110px;
