@@ -20,8 +20,6 @@ function App() {
   return (
     <Router>
       <Header />
-    <br/>
-    <br/>
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/sandwich" element={<Sandwich />} />
