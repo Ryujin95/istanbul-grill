@@ -1,6 +1,6 @@
 export default function CGU() {
     return (
-    <div style={{ padding: "2rem", maxWidth: "1000px", margin: "0 auto", lineHeight: "1.6", color: "white" }}>
+    <div style={{ padding: "2rem", maxWidth: "1200px", margin: "0 auto", lineHeight: "1.6", color: "white" }}>
         <h1>Conditions Générales d’Utilisation (CGU)</h1>
 
         <h2>Objet du site</h2>
