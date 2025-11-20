@@ -12,7 +12,6 @@
   .topBar {
     width: 100%;
     max-width: 1000px;    /* largeur fixe du bloc */
-    margin: 0 auto;       /* centrage du bloc */
     display: flex;
     justify-content: space-between;
     align-items: center;
