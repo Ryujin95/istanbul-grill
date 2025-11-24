@@ -57,14 +57,14 @@ const assiettes = [
     {
       "nom": "Côtelettes d'Agneau",
       "prix": "17€00",
-      "image": "assiettes/coteletteagneau.png",
+      "image": "assiettes/coteletteagneau.webp",
       "categorie": "viande_rouge"
     },
     {
       "nom": "Le Chef",
       "prix": "16€00",
       "image": "assiettes/chef.png",
-      "categorie": "viande_blanche"
+      "categorie": "mixte"
     },
     {
       "nom": "Grillades Mixte",
@@ -106,7 +106,7 @@ const assiettes = [
       "nom": "Suprême",
       "prix": "14€50",
       "image": "assiettes/supreme.png",
-      "categorie": "viande_blanche"
+      "categorie": "mixte"
     },
     {
       "nom": "Silver",
