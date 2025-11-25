@@ -96,21 +96,35 @@
   .entree-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
-    padding: 0.5rem 0;
-    width: 92%;
+    padding: 0.5rem 1rem; /* un peu d’air à gauche/droite */
+    width: 100%;
+    box-sizing: border-box;
   }
+
   .entree-card {
-    width: 92vw;
-    max-width: 520px;
+    width: 100%;
+    max-width: 520px; /* tu peux garder ça si tu veux */
     margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden; /* sécurité si une image déborde */
   }
+
   .entree-image {
+    width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+    display: block;
   }
-  .category-buttons { justify-content: center; }
-  .description-categorie { width: 90%; text-align: justify; }
+
+  .category-buttons { 
+    justify-content: center; 
+  }
+
+  .description-categorie { 
+    width: 100%; 
+    text-align: justify; 
+  }
 }
 
 /* ====== DESKTOP: panneau à gauche et grille centrée ====== */
