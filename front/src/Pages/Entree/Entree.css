@@ -20,7 +20,6 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(300px, 1fr));
   gap: 4rem;
-  padding: 1rem;
   width: min(1200px, 92%);               /* largeur bornée */
   margin-inline: auto;                    /* centre le bloc */
 }
