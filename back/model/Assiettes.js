@@ -117,7 +117,7 @@ const assiettes = [
     {
       "nom": "Iskender",
       "prix": "16€50",
-      "image": "assiettes/iskender.png",
+      "image": "assiettes/iskender.jpg",
       "categorie": "viande_rouge"
     },
     {
@@ -135,7 +135,7 @@ const assiettes = [
     {
       "nom": "Gratin de Poisson",
       "prix": "15€50",
-      "image": "assiettes/gratinpoisson.png",
+      "image": "assiettes/gratinpoisson.jpg",
       "categorie": "poisson"
     },
     {
@@ -153,19 +153,19 @@ const assiettes = [
     {
       "nom": "Ali Nazik",
       "prix": "19€50",
-      "image": "assiettes/alinazik.png",
+      "image": "assiettes/alinazik.jpg",
       "categorie": "mixte"
     },
     {
       "nom": "Nuggets (6 pcs)",
       "prix": "4€50",
-      "image": "assiettes/nuggets.png",
+      "image": "assiettes/nuggets.avif",
       "categorie": "viande_blanche"
     },
     {
       "nom": "Nuggets + Frites (6 pcs)",
       "prix": "5€00",
-      "image": "assiettes/nuggetsfrites.png",
+      "image": "assiettes/nuggetsfrites.jpg",
       "categorie": "viande_blanche"
     }
   ];
