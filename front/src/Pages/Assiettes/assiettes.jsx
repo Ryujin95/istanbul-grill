@@ -47,6 +47,10 @@ const Assiettes = () => {
     <div className={`entree-container ${dockLeft ? "filters-docked" : ""}`}>
       <h2>Nos Assiettes - {labelActif}</h2>
 
+      <p className="assiettes-info">
+        Les accompagnements sont au choix : frites, salade, boulgour et riz.
+      </p>
+
       <div className={`category-buttons ${dockLeft ? "dock-left" : ""}`}>
         {categories.map((cat) => (
           <button
