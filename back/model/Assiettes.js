@@ -167,7 +167,13 @@ const assiettes = [
       "prix": "5€00",
       "image": "assiettes/nuggetsfrites.jpg",
       "categorie": "viande_blanche"
-    }
+    },
+    {
+      "nom": "Beyti Kebab",
+      "prix": "17€00",
+      "image": "assiettes/beytikebab.webp",
+      "categorie": "viande_rouge"
+    },
   ];
   
   const getAssiettes = (req, res) => {
