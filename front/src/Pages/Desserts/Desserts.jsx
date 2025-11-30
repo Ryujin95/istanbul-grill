@@ -26,6 +26,7 @@ const Desserts = () => {
               />
             )}
             <h3>{item.nom}</h3>
+            <p><strong>Ingrédients :</strong> {item.ingredients}</p>
             <p><strong>Prix :</strong> {item.prix}</p>
           </div>
         ))}
