@@ -5,6 +5,17 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => {
   const [isPlatsOpen, setIsPlatsOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const closeMobileMenu = () => {
+    setIsPlatsOpen(false);
+    setIsMobileMenuOpen(false);
+  };
+  const toggleMobileMenu = () => {
+    if (isMobileMenuOpen) {
+      setIsPlatsOpen(false);
+    }
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
     <header className={styles.header}>
@@ -27,9 +38,30 @@ const Header = () => {
         </div>
       </div>
 
-      <nav className={styles.nav}>
+      <div className={styles.mobileControls}>
+        <img src={halalLogo} alt="Certification halal" className={styles.mobileHalalLogo} />
+        <button
+          type="button"
+          className={styles.menuToggle}
+          aria-label="Ouvrir le menu"
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="main-navigation"
+          onClick={toggleMobileMenu}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div className={styles.mobileHours} aria-label="Ouvert 7 jours sur 7, de 11h30 à 22h">
+          <strong>7J/7</strong>
+          <span>11H30-22H</span>
+        </div>
+      </div>
+
+      <nav id="main-navigation" className={`${styles.nav} ${isMobileMenuOpen ? styles.navOpen : ""}`}>
         <NavLink
           to="/"
+          onClick={closeMobileMenu}
           className={({ isActive }) =>
             isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
           }
@@ -39,6 +71,7 @@ const Header = () => {
 
         <NavLink
           to="/entree"
+          onClick={closeMobileMenu}
           className={({ isActive }) =>
             isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
           }
@@ -57,13 +90,14 @@ const Header = () => {
             aria-haspopup="true"
             aria-expanded={isPlatsOpen}
             aria-controls="plats-menu"
+            onClick={() => setIsPlatsOpen((isOpen) => !isOpen)}
           >
             <span>Plats</span>
           </button>
           <div id="plats-menu" className={styles.dropdownContent}>
             <NavLink
               to="/sandwich"
-              onClick={() => setIsPlatsOpen(false)}
+              onClick={closeMobileMenu}
               className={({ isActive }) =>
                 isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
               }
@@ -73,7 +107,7 @@ const Header = () => {
 
             <NavLink
               to="/assiettes"
-              onClick={() => setIsPlatsOpen(false)}
+              onClick={closeMobileMenu}
               className={({ isActive }) =>
                 isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
               }
@@ -83,7 +117,7 @@ const Header = () => {
 
             <NavLink
               to="/pizzas"
-              onClick={() => setIsPlatsOpen(false)}
+              onClick={closeMobileMenu}
               className={({ isActive }) =>
                 isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
               }
@@ -93,7 +127,7 @@ const Header = () => {
 
             <NavLink
               to="/divers"
-              onClick={() => setIsPlatsOpen(false)}
+              onClick={closeMobileMenu}
               className={({ isActive }) =>
                 isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
               }
@@ -105,6 +139,7 @@ const Header = () => {
 
         <NavLink
           to="/desserts"
+          onClick={closeMobileMenu}
           className={({ isActive }) =>
             isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
           }
@@ -114,6 +149,7 @@ const Header = () => {
 
         <NavLink
           to="/boissons"
+          onClick={closeMobileMenu}
           className={({ isActive }) =>
             isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
           }

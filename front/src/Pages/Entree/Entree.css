@@ -9,7 +9,7 @@
 }
 
 .entree-container h2 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.5rem);
   color: #f0a728;
   margin-bottom: 1.5rem;
   text-shadow: 2px 2px 4px black;
@@ -18,9 +18,9 @@
 /* ====== GRILLE: 3 cartes centrées par défaut ====== */
 .entree-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 1fr));
-  gap: 4rem;
-  padding: 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 4vw, 3rem);
+  padding: clamp(1rem, 3vw, 2rem);
   width: min(1200px, 92%);               /* largeur bornée */
   margin-inline: auto;                    /* centre le bloc */
 }
@@ -86,6 +86,7 @@
 }
 .category-buttons button {
   padding: 0.7rem 1.5rem;
+  min-height: 44px;
   font-size: 1rem;
   border: 2px solid #f0a728;
   background-color: transparent;
@@ -93,6 +94,12 @@
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.2s;
+}
+
+@media (max-width: 1200px) and (min-width: 769px) {
+  .entree-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 .category-buttons button:hover,
 .category-buttons .active {
@@ -140,6 +147,10 @@
 
 /* ====== MOBILE: 1 carte ====== */
 @media (max-width: 768px) {
+  .entree-container {
+    padding: 1.25rem 0.75rem;
+  }
+
   .entree-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
@@ -166,6 +177,12 @@
 
   .category-buttons { 
     justify-content: center; 
+    gap: 0.6rem;
+  }
+
+  .category-buttons button {
+    flex: 1 1 140px;
+    padding-inline: 0.75rem;
   }
 
   .description-categorie { 

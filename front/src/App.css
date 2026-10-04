@@ -1,8 +1,5 @@
 body{
   background: radial-gradient(circle, #491902,#0f0201 );
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 .home{
   color: antiquewhite;
@@ -11,5 +8,9 @@ body{
   width: 95%;
   max-width: 1800px;
   margin: 0 auto;
+}
+
+main {
+  min-height: 55vh;
 }
 
