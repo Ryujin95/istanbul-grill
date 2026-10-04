@@ -1,20 +1,11 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import "../Entree/Entree.css"; // On réutilise le même CSS que les entrées
+import { ErrorState, LoadingState } from "../../Components/MenuFeedback/MenuFeedback";
+import { useMenuData } from "../../hooks/useMenuData";
 
 const Boissons = () => {
-  const [boissons, setBoissons] = useState([]);
   const [categorieActive, setCategorieActive] = useState("sans_alcool");
-
-  useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/car/boissons`)
-      .then((response) => {
-        setBoissons(response.data);
-      })
-      .catch((error) => {
-        console.error("Erreur lors du chargement des boissons :", error);
-      });
-  }, []);
+  const { data: boissons, error, isLoading, reload } = useMenuData("/car/boissons");
 
   const categories = [
     { label: "Sans Alcool", value: "sans_alcool" },
@@ -41,23 +32,27 @@ const Boissons = () => {
         ))}
       </div>
 
-      <div className="entree-grid">
+      {isLoading && <LoadingState />}
+      {error && <ErrorState message={error} onRetry={reload} />}
+      {!isLoading && !error && <div className="entree-grid">
         {boissons
           .filter(item => item.categorie === categorieActive)
-          .map((item, index) => (
-            <div key={index} className="entree-card">
+          .map((item) => (
+            <div key={`${item.categorie}-${item.nom}`} className="entree-card">
               {item.image && (
                 <img
                   src={`${import.meta.env.VITE_API_URL}/image/boissons/${item.image}`}
                   alt={item.nom}
                   className="entree-image"
+                  loading="lazy"
+                  decoding="async"
                 />
               )}
               <h3>{item.nom}</h3>
               <p><strong>Prix :</strong> {item.prix}</p>
             </div>
           ))}
-      </div>
+      </div>}
     </div>
   );
 };

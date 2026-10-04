@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import "../Entree/Entree.css";
+import { ErrorState, LoadingState } from "../../Components/MenuFeedback/MenuFeedback";
+import { useMenuData } from "../../hooks/useMenuData";
 
 const Pizza = () => {
-  const [pizzas, setPizzas] = useState([]);
   const [categorieActive, setCategorieActive] = useState("pizza");
   const [dockLeft, setDockLeft] = useState(false);
-
-  useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/car/pizzas`)
-      .then(r => setPizzas(r.data))
-      .catch(e => console.error("Erreur lors du chargement des pizzas :", e));
-  }, []);
+  const { data: pizzas, error, isLoading, reload } = useMenuData("/car/pizzas");
 
   useEffect(() => {
     const onScroll = () => {
@@ -65,16 +60,20 @@ const Pizza = () => {
         </p>
       )}
 
-      <div className="entree-grid">
+      {isLoading && <LoadingState />}
+      {error && <ErrorState message={error} onRetry={reload} />}
+      {!isLoading && !error && <div className="entree-grid">
         {pizzas
           .filter(pizza => pizza.categorie === categorieActive)
-          .map((pizza, i) => (
-            <div key={i} className="entree-card">
+          .map((pizza) => (
+            <div key={`${pizza.categorie}-${pizza.nom}`} className="entree-card">
               {pizza.image && (
                 <img
                   src={`${import.meta.env.VITE_API_URL}/image/pizza/${pizza.image}`}
                   alt={pizza.nom}
                   className="entree-image"
+                  loading="lazy"
+                  decoding="async"
                 />
               )}
               <h3>{pizza.nom}</h3>
@@ -82,7 +81,7 @@ const Pizza = () => {
               <p><strong>Prix :</strong> {pizza.prix}</p>
             </div>
           ))}
-      </div>
+      </div>}
     </div>
   );
 };

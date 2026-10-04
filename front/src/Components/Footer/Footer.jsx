@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
     return (
         <footer style={styles.footer}>
@@ -33,8 +35,8 @@ const Footer = () => {
         </div>
 
         <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '5rem'}}>
-          <a href="/MentionsLegales" style={styles.link}>Mentions légales</a>
-          <a href="/cgu" style={styles.link}>CGU</a>
+          <Link to="/mentions-legales" style={styles.link}>Mentions légales</Link>
+          <Link to="/cgu" style={styles.link}>CGU</Link>
         </div>
       
         <p style={{ marginTop: '20px' }}>Nous acceptons : Ticket Restaurant, CB, Visa</p>
@@ -72,6 +74,5 @@ const Footer = () => {
       display: 'block',
       marginBottom: '0.3rem'
     }
-  };  
+  };
   export default Footer;
-  

@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import halalLogo from '../../assets/100-halal-sticker-label_24886-318.avif';
 import styles from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
+  const [isPlatsOpen, setIsPlatsOpen] = useState(false);
+
   return (
     <header className={styles.header}>
       <div className={styles.topBar}>
@@ -43,11 +46,24 @@ const Header = () => {
           <span>Entrées</span>
         </NavLink>
 
-        <div className={styles.dropdown}>
-          <span className={`${styles.navItem} ${styles.navItemPlats}`}><span>Plats</span></span>
-          <div className={styles.dropdownContent}>
+        <div
+          className={`${styles.dropdown} ${isPlatsOpen ? styles.open : ""}`}
+          onMouseEnter={() => setIsPlatsOpen(true)}
+          onMouseLeave={() => setIsPlatsOpen(false)}
+        >
+          <button
+            type="button"
+            className={`${styles.navItem} ${styles.navItemPlats} ${styles.dropdownToggle}`}
+            aria-haspopup="true"
+            aria-expanded={isPlatsOpen}
+            aria-controls="plats-menu"
+          >
+            <span>Plats</span>
+          </button>
+          <div id="plats-menu" className={styles.dropdownContent}>
             <NavLink
               to="/sandwich"
+              onClick={() => setIsPlatsOpen(false)}
               className={({ isActive }) =>
                 isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
               }
@@ -57,6 +73,7 @@ const Header = () => {
 
             <NavLink
               to="/assiettes"
+              onClick={() => setIsPlatsOpen(false)}
               className={({ isActive }) =>
                 isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
               }
@@ -66,6 +83,7 @@ const Header = () => {
 
             <NavLink
               to="/pizzas"
+              onClick={() => setIsPlatsOpen(false)}
               className={({ isActive }) =>
                 isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
               }
@@ -75,6 +93,7 @@ const Header = () => {
 
             <NavLink
               to="/divers"
+              onClick={() => setIsPlatsOpen(false)}
               className={({ isActive }) =>
                 isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
               }

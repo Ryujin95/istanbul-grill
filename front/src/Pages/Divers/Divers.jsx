@@ -1,21 +1,12 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import "../Entree/Entree.css"; // réutilisation du CSS existant
+import { ErrorState, LoadingState } from "../../Components/MenuFeedback/MenuFeedback";
+import { useMenuData } from "../../hooks/useMenuData";
 
 const Divers = () => {
-  const [divers, setDivers] = useState([]);
   const [categorieActive, setCategorieActive] = useState("burger");
   const [dockLeft, setDockLeft] = useState(false);
-
-  useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/car/divers`)
-      .then((response) => {
-        setDivers(response.data);
-      })
-      .catch((error) => {
-        console.error("Erreur lors du chargement des divers :", error);
-      });
-  }, []);
+  const { data: divers, error, isLoading, reload } = useMenuData("/car/divers");
 
   useEffect(() => {
     const onScroll = () => {
@@ -66,16 +57,20 @@ const Divers = () => {
         </p>
       )}
 
-      <div className="entree-grid">
+      {isLoading && <LoadingState />}
+      {error && <ErrorState message={error} onRetry={reload} />}
+      {!isLoading && !error && <div className="entree-grid">
         {divers
           .filter(item => item.categorie === categorieActive)
-          .map((item, index) => (
-            <div key={index} className="entree-card">
+          .map((item) => (
+            <div key={`${item.categorie}-${item.nom}`} className="entree-card">
               {item.image && (
                 <img
                   src={`${import.meta.env.VITE_API_URL}/image/divers/${item.image}`}
                   alt={item.nom}
                   className="entree-image"
+                  loading="lazy"
+                  decoding="async"
                 />
               )}
               <h3>{item.nom}</h3>
@@ -85,7 +80,7 @@ const Divers = () => {
               )}
             </div>
           ))}
-      </div>
+      </div>}
 
       {categorieActive === "pain_au_four" && (
         <p style={{ fontStyle: "italic", marginTop: "10px", color: "white" }}>
