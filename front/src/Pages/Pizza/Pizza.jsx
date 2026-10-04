@@ -60,8 +60,8 @@ const Pizza = () => {
       )}
       {categorieActive === "lahmacun" && (
         <p className="description-categorie">
-          Le lahmacun est une galette fine d'origine turque, recouverte d'une préparation à base de viande hachée, de légumes et d'épices. 
-          C'est un plat léger, souvent roulé avec des légumes frais et du citron pour plus de fraîcheur.
+          Le lahmacun est une galette fine d&apos;origine turque, recouverte d&apos;une préparation à base de viande hachée, de légumes et d&apos;épices.
+          C&apos;est un plat léger, souvent roulé avec des légumes frais et du citron pour plus de fraîcheur.
         </p>
       )}
 

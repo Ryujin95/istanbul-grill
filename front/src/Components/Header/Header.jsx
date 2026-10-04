@@ -1,4 +1,3 @@
-import React from 'react';
 import halalLogo from '../../assets/100-halal-sticker-label_24886-318.avif';
 import styles from './Header.module.css';
 import { NavLink } from 'react-router-dom';
